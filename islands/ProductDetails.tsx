@@ -20,7 +20,7 @@ export default function ProductDetails({ product }: { product: Product }) {
 
     const newImage = product.media[index];
     const imageElement = document.querySelector(
-      "#productImage"
+      "#productImage",
     ) as HTMLImageElement;
 
     imageElement.src = newImage.url;
@@ -105,7 +105,8 @@ export default function ProductDetails({ product }: { product: Product }) {
                       stroke-linejoin="round"
                       stroke-width="2"
                       d="M15 19l-7-7 7-7"
-                    ></path>
+                    >
+                    </path>
                   </svg>
                   <span class="sr-only">Previous</span>
                 </span>
@@ -131,7 +132,8 @@ export default function ProductDetails({ product }: { product: Product }) {
                       stroke-linejoin="round"
                       stroke-width="2"
                       d="M9 5l7 7-7 7"
-                    ></path>
+                    >
+                    </path>
                   </svg>
                   <span class="sr-only">Next</span>
                 </span>
@@ -174,9 +176,8 @@ export default function ProductDetails({ product }: { product: Product }) {
                 <select
                   onChange={(e) =>
                     setVariant(
-                      JSON.parse((e.target as HTMLSelectElement).value)
-                    )
-                  }
+                      JSON.parse((e.target as HTMLSelectElement).value),
+                    )}
                   class="absolute pl-4 top-0 left-0 block w-full h-full rounded-lg appearance-none bg-transparent cursor-pointer"
                 >
                   {product.variants.map((variant) => {

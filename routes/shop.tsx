@@ -61,9 +61,7 @@ const ContactPage = (ctx: RouteContext) => {
           Product List
         </h2>
         <div>
-          {edges.map((edge) => (
-            <ProductCard product={edge.node} />
-          ))}
+          {edges.map((edge) => <ProductCard product={edge.node} />)}
         </div>
       </div>
       <Footer translation={translation.footer} />

@@ -1,4 +1,4 @@
-import translation from "./i18n/en.json" assert { type: "json" };
+import translation from "./i18n/en.json" with { type: "json" };
 
 type Translation = typeof translation;
 
@@ -53,4 +53,4 @@ type Product = {
   };
 };
 
-export type { State, Translation, Product, Image, Money, List };
+export type { Image, List, Money, Product, State, Translation };

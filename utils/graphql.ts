@@ -6,7 +6,7 @@ if (!SALEOR_API) {
 
 export async function graphqlClient<T>(
   query: string,
-  variables: Record<string, unknown> = {}
+  variables: Record<string, unknown> = {},
 ): Promise<T> {
   const resp = await fetch(SALEOR_API, {
     method: "POST",

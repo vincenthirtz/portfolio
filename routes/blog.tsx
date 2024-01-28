@@ -28,9 +28,7 @@ const Blog = (ctx: RouteContext, props: PageProps<Data>) => {
         <h3>{posts.length} articles</h3>
       </div>
       <ul class="last_posts">
-        {posts.map((post) => (
-          <PostPreview post={post} />
-        ))}
+        {posts.map((post) => <PostPreview post={post} />)}
       </ul>
       <Footer translation={translation.footer} />
     </div>

@@ -29,7 +29,8 @@ const Projects = (data: { translation: Translation["projects"] }) => (
         from="#1dbde6"
         to="#f1515e"
       />
-      {/* 
+      {
+        /*
       <Project
         link="https://www.laufach.de"
         domain="laufach.de"
@@ -149,7 +150,8 @@ const Projects = (data: { translation: Translation["projects"] }) => (
         technologies="Next.js, Strapi"
         from="#f5e6ad"
         to="#f13c77"
-      /> */}
+      /> */
+      }
     </div>
   </>
 );

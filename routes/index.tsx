@@ -29,9 +29,7 @@ const Index = (ctx: RouteContext, props: PageProps<Data>) => {
       <Me translation={translation.me} />
       <h3>Derniers articles</h3>
       <ul class="last_posts">
-        {lastPosts.map((post) => (
-          <PostPreview post={post} />
-        ))}
+        {lastPosts.map((post) => <PostPreview post={post} />)}
       </ul>
       <Footer translation={translation.footer} />
     </div>

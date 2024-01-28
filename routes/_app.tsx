@@ -77,8 +77,10 @@ export default function App({ Component }: PageProps) {
                   />
                 </svg>
                 <span class="flex absolute -mt-5 ml-4">
-                  <span class="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-pink-400 opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-3 w-3 bg-pink-500"></span>
+                  <span class="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-pink-400 opacity-75">
+                  </span>
+                  <span class="relative inline-flex rounded-full h-3 w-3 bg-pink-500">
+                  </span>
                 </span>
               </a>
               <a class="flex items-center hover:text-gray-200" href="#">

@@ -11,7 +11,7 @@ export async function loadPost(slug: string): Promise<Post | null> {
   let text: string;
   try {
     text = await Deno.readTextFile(
-      `./data/posts/${decodeURIComponent(slug)}.md`
+      `./data/posts/${decodeURIComponent(slug)}.md`,
     );
   } catch (err) {
     if (err instanceof Deno.errors.NotFound) {

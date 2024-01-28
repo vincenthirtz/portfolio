@@ -60,7 +60,7 @@ const CART_QUERY = `{
 // deno-lint-ignore no-explicit-any
 async function saleorGraphql<T = any>(
   query: string,
-  variables?: Record<string, unknown>
+  variables?: Record<string, unknown>,
 ): Promise<T> {
   const res = await fetch("/api/graphqlGateway", {
     method: "POST",
@@ -95,7 +95,7 @@ async function cartFetcher(): Promise<CartData> {
 
   const { checkout } = await saleorGraphql(
     `query($token: UUID!) { checkout(token: $token) ${CART_QUERY} }`,
-    { token: id }
+    { token: id },
   );
   if (checkout === null) {
     // If there is a cart ID, but the returned cart is null, then the cart
@@ -112,7 +112,8 @@ export function useCart() {
   return useSWR<CartData, Error>("cart", cartFetcher, {});
 }
 
-const ADD_TO_CART_QUERY = `mutation addToCart($token: UUID!, $lines: [CheckoutLineInput!]!){
+const ADD_TO_CART_QUERY =
+  `mutation addToCart($token: UUID!, $lines: [CheckoutLineInput!]!){
       checkoutLinesAdd(
         token: $token
         lines: $lines
@@ -143,7 +144,7 @@ export async function removeFromCart(cartId: string, lineItemId: string) {
     {
       cartId,
       lineId: lineItemId,
-    }
+    },
   ).then(({ cart }) => cart);
   await mutate("cart", mutation);
 }

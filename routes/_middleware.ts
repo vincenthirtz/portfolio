@@ -1,7 +1,7 @@
 import { FreshContext } from "$fresh/server.ts";
 
-import fr from "../utils/i18n/fr.json" assert { type: "json" };
-import en from "../utils/i18n/en.json" assert { type: "json" };
+import fr from "../utils/i18n/fr.json" with { type: "json" };
+import en from "../utils/i18n/en.json" with { type: "json" };
 
 import SecurityHeaders from "../utils/securityHeaders.ts";
 import { State } from "../utils/types.ts";

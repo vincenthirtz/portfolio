@@ -11,7 +11,7 @@ import {
 
 // Lazy load a <dialog> polyfill.
 // @ts-expect-error HTMLDialogElement is not just a type!
-if (IS_BROWSER && window.HTMLDialogElement === "undefined") {
+if (IS_BROWSER && globalThis.HTMLDialogElement === "undefined") {
   await import(
     "https://raw.githubusercontent.com/GoogleChrome/dialog-polyfill/5033aac1b74c44f36cde47be3d11f4756f3f8fda/dist/dialog-polyfill.esm.js"
   );
@@ -77,13 +77,15 @@ export default function Cart() {
 
 function CartInner(props: { cart: CartData | undefined }) {
   const corners = apply`rounded(tl-2xl tr-2xl sm:(tr-none bl-2xl))`;
-  const card = tw`py-8 px-6 h-full bg-white ${corners} flex flex-col justify-between`;
+  const card =
+    tw`py-8 px-6 h-full bg-white ${corners} flex flex-col justify-between`;
   const { data: cart } = useCart();
 
   const checkout = (e: Event) => {
     e.preventDefault();
     if (cart) {
-      location.href = `https://demo.saleor.io/checkout?checkout=${cart.id}&locale=en-US&channel=default-channel`;
+      location.href =
+        `https://demo.saleor.io/checkout?checkout=${cart.id}&locale=en-US&channel=default-channel`;
     }
   };
 
@@ -114,56 +116,54 @@ function CartInner(props: { cart: CartData | undefined }) {
       </div>
       {props.cart && (
         <div class="flex-grow-1 my-4">
-          {props.cart.lines.length === 0 ? (
-            <p class="text-gray-700">There are no items in the cart.</p>
-          ) : (
-            <ul role="list" class="-my-6 divide-y divide-gray-200">
-              {props.cart.lines.map((line) => (
-                <li class="flex py-6">
-                  <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                    <img
-                      src={line.variant.product.thumbnail.url}
-                      alt={
-                        line.variant.product.thumbnail.alt ??
-                        line.variant.product.name
-                      }
-                      class="h-full w-full object-cover object-center"
-                    />
-                  </div>
-                  <div class="ml-4 flex flex-1 flex-col">
-                    <div>
-                      <div class="flex justify-between text-base font-medium text-gray-900">
-                        <h3>{line.variant.product.name}</h3>
-                        <p class="ml-4">
-                          {formatCurrency(line.totalPrice.gross)}
+          {props.cart.lines.length === 0
+            ? <p class="text-gray-700">There are no items in the cart.</p>
+            : (
+              <ul role="list" class="-my-6 divide-y divide-gray-200">
+                {props.cart.lines.map((line) => (
+                  <li class="flex py-6">
+                    <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                      <img
+                        src={line.variant.product.thumbnail.url}
+                        alt={line.variant.product.thumbnail.alt ??
+                          line.variant.product.name}
+                        class="h-full w-full object-cover object-center"
+                      />
+                    </div>
+                    <div class="ml-4 flex flex-1 flex-col">
+                      <div>
+                        <div class="flex justify-between text-base font-medium text-gray-900">
+                          <h3>{line.variant.product.name}</h3>
+                          <p class="ml-4">
+                            {formatCurrency(line.totalPrice.gross)}
+                          </p>
+                        </div>
+                        <p class="mt-1 text-sm text-gray-500">
+                          {line.variant.name !== line.variant.product.name
+                            ? line.variant.name
+                            : ""}
                         </p>
                       </div>
-                      <p class="mt-1 text-sm text-gray-500">
-                        {line.variant.name !== line.variant.product.name
-                          ? line.variant.name
-                          : ""}
-                      </p>
-                    </div>
-                    <div class="flex flex-1 items-end justify-between text-sm">
-                      <p class="text-gray-500">
-                        Quantity <strong>{line.quantity}</strong>
-                      </p>
+                      <div class="flex flex-1 items-end justify-between text-sm">
+                        <p class="text-gray-500">
+                          Quantity <strong>{line.quantity}</strong>
+                        </p>
 
-                      <div class="flex">
-                        <button
-                          type="button"
-                          class="font-medium"
-                          onClick={() => remove(line.id)}
-                        >
-                          Remove
-                        </button>
+                        <div class="flex">
+                          <button
+                            type="button"
+                            class="font-medium"
+                            onClick={() => remove(line.id)}
+                          >
+                            Remove
+                          </button>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          )}
+                  </li>
+                ))}
+              </ul>
+            )}
         </div>
       )}
       {props.cart && (
