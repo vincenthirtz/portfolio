@@ -102,7 +102,7 @@
     ]
   },
   "projects": {
-    "title": "Projets"
+    "title": "Projects"
   },
   "contact": {
     "title": "Contact",
@@ -110,8 +110,8 @@
     "tel": "Phone",
     "message": "Message",
     "send": "Send",
-    "sent": "Votre message a bien éé& envoyé!",
-    "failed": "Une erreur est survenu, veuillez me contacter plus tard :( ou via les réseaux sociaux."
+    "sent": "Your message has been sent!",
+    "failed": "An error has occurred, please contact me later :( or via social media."
   },
   "footer": {
     "imprint": "Impressum",
