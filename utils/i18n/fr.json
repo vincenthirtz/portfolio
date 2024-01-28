@@ -1,9 +1,9 @@
 {
   "me": {
-    "text": "I was born on December 11, 1992 in Neuilly-sur-Seine and I have been immersed in technology since I was little.\nI live in Lyon in France, and I currently work at Sapiendo."
+    "text": "Je suis né le 11 décembre 1992 à Neuilly-sur-Seine et je baigne dans les technologies depuis tout petit.\nJ'habite à Lyon, et je travaille actuellement chez Sapiendo."
   },
   "education": {
-    "title": "School",
+    "title": "Formations",
     "milestones": [
       {
         "title": "Campus La Chataigneraie",
@@ -18,7 +18,7 @@
     ]
   },
   "experience": {
-    "title": "Work",
+    "title": "Expériences",
     "jobs": [
       {
         "name": "Sapiendo",
@@ -64,10 +64,10 @@
     ]
   },
   "skills": {
-    "title": "Skills",
+    "title": "Compétences",
     "sections": [
       {
-        "title": "Langages",
+        "title": "Languages",
         "skills": ["JavaScript", "TypeScript", "PHP"]
       },
       {
@@ -88,7 +88,7 @@
         ]
       },
       {
-        "title": "Env",
+        "title": "Environnements",
         "skills": [
           "Linux",
           "Docker",
@@ -107,9 +107,9 @@
   "contact": {
     "title": "Contact",
     "mail": "E-Mail",
-    "tel": "Phone",
+    "tel": "Téléphone",
     "message": "Message",
-    "send": "Send",
+    "send": "Envoyer",
     "sent": "Votre message a bien éé& envoyé!",
     "failed": "Une erreur est survenu, veuillez me contacter plus tard :( ou via les réseaux sociaux."
   },

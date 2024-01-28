@@ -4,11 +4,21 @@
 
 import * as $_app from "./routes/_app.tsx";
 import * as $_middleware from "./routes/_middleware.ts";
+import * as $api_graphql from "./routes/api/graphql.ts";
 import * as $api_mail from "./routes/api/mail.ts";
+import * as $blog from "./routes/blog.tsx";
+import * as $blog_slug_ from "./routes/blog/[slug].tsx";
+import * as $contact from "./routes/contact.tsx";
+import * as $cv from "./routes/cv.tsx";
 import * as $imprint from "./routes/imprint.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $privacy from "./routes/privacy.tsx";
-import * as $contact from "./islands/contact.tsx";
+import * as $products_product_ from "./routes/products/[product].tsx";
+import * as $shop from "./routes/shop.tsx";
+import * as $AddToCart from "./islands/AddToCart.tsx";
+import * as $Cart from "./islands/Cart.tsx";
+import * as $ProductDetails from "./islands/ProductDetails.tsx";
+import * as $contact_1 from "./islands/contact.tsx";
 import * as $language from "./islands/language.tsx";
 import { type Manifest } from "$fresh/server.ts";
 
@@ -16,13 +26,23 @@ const manifest = {
   routes: {
     "./routes/_app.tsx": $_app,
     "./routes/_middleware.ts": $_middleware,
+    "./routes/api/graphql.ts": $api_graphql,
     "./routes/api/mail.ts": $api_mail,
+    "./routes/blog.tsx": $blog,
+    "./routes/blog/[slug].tsx": $blog_slug_,
+    "./routes/contact.tsx": $contact,
+    "./routes/cv.tsx": $cv,
     "./routes/imprint.tsx": $imprint,
     "./routes/index.tsx": $index,
     "./routes/privacy.tsx": $privacy,
+    "./routes/products/[product].tsx": $products_product_,
+    "./routes/shop.tsx": $shop,
   },
   islands: {
-    "./islands/contact.tsx": $contact,
+    "./islands/AddToCart.tsx": $AddToCart,
+    "./islands/Cart.tsx": $Cart,
+    "./islands/ProductDetails.tsx": $ProductDetails,
+    "./islands/contact.tsx": $contact_1,
     "./islands/language.tsx": $language,
   },
   baseUrl: import.meta.url,

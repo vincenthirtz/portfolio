@@ -1,47 +1,35 @@
 import { Translation } from "../utils/types.ts";
-
-const Project = (props: {
-  link: string;
-  domain: string;
-  type: string;
-  technologies: string;
-  from: string;
-  to: string;
-  matteo?: boolean;
-}) => (
-  <a href={props.link} rel="noopener" target="_blank">
-    <div
-      class={`rounded-xl p-0.3 h-full bg-gradient-to-r from-[${props.from}] to-[${props.to}] cursor-pointer transition-transform hover:scale-105`}
-    >
-      <div class="bg-gray rounded-lg p-2 text-center h-full">
-        <h4 class="mb-0.5">{props.domain}</h4>
-        <h5>{props.type}</h5>
-        <p class="text-xs mt-0.3">{props.technologies}</p>
-      </div>
-    </div>
-  </a>
-);
+import Card from "./card.tsx";
 
 const Projects = (data: { translation: Translation["projects"] }) => (
   <>
     <h3>{data.translation.title}</h3>
     <div class="grid grid-cols-2 sm:grid-cols-1 gap-3">
-      <Project
-        link="https://github.com/mooxl/astroad"
-        domain="Astroad"
-        type="Template"
-        technologies="Astro, PayloadCMS, Tailwind CSS, Docker"
+      <Card
+        link="https://denisgodefroy.fr"
+        domain="denisgodefroy.fr"
+        type="Dynamic Website"
+        technologies="Wordpress"
         from="#ef709b"
         to="#fa9372"
       />
-      <Project
-        link="https://www.raycast.com/mooxl"
-        domain="Raycast"
-        type="Extensions"
-        technologies="React"
+      <Card
+        link="https://margotchalmeton.fr"
+        domain="margotchalmeton.fr"
+        type="Static Website"
+        technologies="NextJs, Typescript"
         from="#334d50"
         to="#b5c6e0"
       />
+      <Card
+        link="https://eclose-coach.fr"
+        domain="eclose-coach.fr"
+        type="Dynamic Website"
+        technologies="Wordpress"
+        from="#1dbde6"
+        to="#f1515e"
+      />
+      {/* 
       <Project
         link="https://www.laufach.de"
         domain="laufach.de"
@@ -161,7 +149,7 @@ const Projects = (data: { translation: Translation["projects"] }) => (
         technologies="Next.js, Strapi"
         from="#f5e6ad"
         to="#f13c77"
-      />
+      /> */}
     </div>
   </>
 );

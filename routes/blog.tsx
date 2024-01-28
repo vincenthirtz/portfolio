@@ -18,18 +18,17 @@ export const handler: Handlers<Data, State> = {
   },
 };
 
-const Index = (ctx: RouteContext, props: PageProps<Data>) => {
+const Blog = (ctx: RouteContext, props: PageProps<Data>) => {
   const lang = ctx.state.lang as State["lang"];
   const translation = ctx.state.translation as State["translation"];
   const { posts } = ctx.data;
-  const lastPosts = posts.slice(0, 3);
   return (
     <div class="grid grid-cols-desktop gap-x-5 lg:grid-cols-1  gap-y-10 lg:gap-y-0">
-      <Menu lang={lang} />
-      <Me translation={translation.me} />
-      <h3>Derniers articles</h3>
+      <div class="w-64">
+        <h3>{posts.length} articles</h3>
+      </div>
       <ul class="last_posts">
-        {lastPosts.map((post) => (
+        {posts.map((post) => (
           <PostPreview post={post} />
         ))}
       </ul>
@@ -38,4 +37,4 @@ const Index = (ctx: RouteContext, props: PageProps<Data>) => {
   );
 };
 
-export default Index;
+export default Blog;

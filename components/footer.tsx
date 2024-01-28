@@ -2,24 +2,25 @@ import { Translation } from "../utils/types.ts";
 
 const Footer = (data: { translation: Translation["footer"] }) => (
   <div class="col-span-2 lg:col-span-1 flex gap-1 items-start mt-10 justify-between">
-    <a href="/imprint">
-      {data.translation.imprint}
-    </a>
+    <a href="/imprint">{data?.translation?.imprint}</a>
     <div class="flex flex-col items-center gap-2">
       <a
         class="relative w-4"
         width="16"
         height="16"
-        href="https://github.com/mooxl"
+        href="https://github.com/vincenthirtz"
         rel="noopener"
         target="_blank"
       >
-        <img
-          class="w-full"
-          loading="lazy"
-          src="vectors/github.svg"
-          alt="Logo von GitHub"
-        />
+        <div class="w-full" loading="lazy" alt="Logo de GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <title>github</title>
+            <path
+              fill="currentColor"
+              d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z"
+            />
+          </svg>
+        </div>
       </a>
       <a href="https://fresh.deno.dev" class="w-15">
         <img
@@ -31,9 +32,7 @@ const Footer = (data: { translation: Translation["footer"] }) => (
         />
       </a>
     </div>
-    <a href="/privacy">
-      {data.translation.privacy}
-    </a>
+    <a href="/privacy">{data?.translation?.privacy}</a>
   </div>
 );
 export default Footer;

@@ -15,14 +15,14 @@ export const handler: Handlers = {
         },
       },
     });
-    const payload: { mail: string; message: string } | undefined = await request
-      .json();
+    const payload: { mail: string; message: string; tel: string } | undefined =
+      await request.json();
     if (payload) {
       try {
         await client.send({
           from: Deno.env.get("from")!,
           to: Deno.env.get("to")!,
-          subject: `Neue Nachricht von ${payload.mail}`,
+          subject: `Nouvel email de ${payload.mail} ${payload.tel}`,
           content: payload.message,
         });
         await client.close();
