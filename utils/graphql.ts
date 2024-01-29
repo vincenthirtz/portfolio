@@ -1,4 +1,8 @@
-const SALEOR_API = Deno.env.get("SALEOR_API") as string;
+import { config } from "https://deno.land/x/dotenv@v3.2.2/mod.ts";
+
+const env = config();
+
+const SALEOR_API = env.SALEOR_API as string;
 
 if (!SALEOR_API) {
   throw new Error("env `SALEOR_API` must be set");
@@ -6,7 +10,7 @@ if (!SALEOR_API) {
 
 export async function graphqlClient<T>(
   query: string,
-  variables: Record<string, unknown> = {},
+  variables: Record<string, unknown> = {}
 ): Promise<T> {
   const resp = await fetch(SALEOR_API, {
     method: "POST",
